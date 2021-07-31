@@ -1,28 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <main id="app-content">
+      <Header />
+      <Results/>
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header.vue";
+import Results from "./components/Results.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Header,
+    Results
+  },
+};
 </script>
 
 <style>
+@import url("http://fonts.cdnfonts.com/css/malgun-gothic-boot");
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background: linear-gradient(to left top, #21e6c1, #278ea5);
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  padding-top: 2em;
+  font-family: "Malgun Gothic Boot", sans-serif;
+}
+#app-content {
+  background: #fff;
+  width: 80%;
+  min-height: 90vh;
+  margin: auto;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 25px;
 }
 </style>
