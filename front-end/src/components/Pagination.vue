@@ -41,6 +41,13 @@ export default {
       }
     },
   },
+  watch: {
+    nbPage(newNbPage) {
+      if (newNbPage) {
+        this.currentPage = 1;
+      }
+    },
+  },
 };
 </script>
 
