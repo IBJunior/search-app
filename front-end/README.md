@@ -1,24 +1,13 @@
 # front-end
+Front-end de l'application qui utilise elasticsearch et nodejs pour faire de la recherche sur les documents indexés
 
-## Project setup
+## Installer les dépendances 
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Lancer l'applciation sur un serveur
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

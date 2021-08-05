@@ -1,15 +1,12 @@
 <template>
   <div id="result-item">
     <div class="item-title">
-      <h3>What is Bitcoin</h3>
-      <span class="date"> 21 Janvier 2021</span>
+      <h3>{{ getBlogTitle() }}</h3>
+      <span class="date"> {{ getBlogDate() }}</span>
     </div>
     <div class="item-content">
-      <p>
-        Lorem ipsum <strong>Bitcoin</strong> sit amet consectetur adipisicing elit. Consectetur
-        aperiam inventore maiores.
-      </p>
-      <a class="read-more"> Lire plus</a>
+      <p v-html="getBlogDescription()" />
+      <a class="read-more" :href="getUrl()" target="blank"> Lire plus</a>
     </div>
   </div>
 </template>
@@ -17,7 +14,30 @@
 <script>
 export default {
   name: "ResultItem",
-  props: ["item"],
+  props: ["blog"],
+  methods: {
+    getUrl() {
+      return this.blog["_source"]["url"];
+    },
+    getBlogTitle() {
+      return this.blog["_source"]["title"];
+    },
+    getBlogDate() {
+      return this.blog["_source"]["publication-date"];
+    },
+    getBlogDescription() {
+      let description = "";
+      if (this.blog["highlight"]) {
+        for (let text of this.blog["highlight"]["content_plain"]) {
+          description += text + " ";
+        }
+        description = description.substring(0, 120);
+      } else {
+        description = this.blog["_source"]["content_plain"].substring(0, 120);
+      }
+      return description;
+    },
+  },
 };
 </script>
 
@@ -25,23 +45,34 @@ export default {
 #result-item {
   background: rgba(255, 255, 255, 0.7);
   padding: 0.7em;
-  margin-top: .8em;
+  margin-top: 1.2em;
+  font-size: 0.9em;
 }
-.item-title h3{
-    padding: 0;
-    margin:0;
+.item-title h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+}
+.read-more {
+  background: #3e30ff;
+  padding: 0.2em;
+  color: #fff;
+  text-decoration: none;
+}
+.item-title .date {
+  color: #797979;
+}
+.item-title {
+  display: flex;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  #result-item {
     font-size: 1em;
-}
-.read-more{
-     background: #3e30ff;
-     padding: .1em;
-     color: #fff;
-}
-.item-title .date{
-    color: #797979;
-}
-.item-title{
-    display: flex;
-    justify-content: space-between;
+    padding: 1em;
+  }
+  .item-title h3 {
+    font-size: 1em;
+  }
 }
 </style>

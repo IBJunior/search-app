@@ -1,4 +1,5 @@
 const { search } = require("../services/elasticsearch");
+const NOMBRE_RESULTAT_PAR_PAGE = 5;
 
 // effectuer la recherche sur elasticsearch
 const perform_search = (req, res) => {
@@ -30,7 +31,8 @@ function search_params(search_input, page) {
   // les paramètres de recherche
   let body = {
     query: get_search_query(search_input),
-    from: page,
+    // le compte commence à partir de 0 sur ES
+    from: (page - 1) * NOMBRE_RESULTAT_PAR_PAGE,
     size: 5,
     highlight: {
       pre_tags: "<b>",
@@ -56,7 +58,7 @@ function get_search_query(search_input) {
         {
           multi_match: {
             query: search_input,
-            fields: ["title^3", "content_plain"],
+            fields: ["title^3", "content_plain^2"],
             type: "phrase",
           },
         },
