@@ -9,7 +9,6 @@
   "author": "Ali Ibrahim Jr",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "elasticsearch": "^16.7.2",
