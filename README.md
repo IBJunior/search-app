@@ -3,6 +3,14 @@ Ce projet/repo fait partie d'une série d'articles faisant une introduction sur 
 
 Ce projet illustre avec un exemple simple comment on peut exploiter la puissance d'elasticsearch pour facilement intégrer l'aspect de "recherche" sur une application.
 
+## Demo
+- Suggestion des termes de recherche
+<img src="images/SearchApp-Home.png">
+- Résultat de recherche 
+<img src="images/SearchApp-search.png">
+- Pagination des résultats de recherhce
+<img src="images/pagination.png">
+
 ## Elasticsearch
 Vous devez avoir elasticsearch installé sur votre système ou avec docker. Ce projet utilise <a href="https://github.com/IBJunior/elk-docker-compose"> ce repo</a> pour lancer elasticsearch et indexer les documents.
 ## Technologies à installer avant d'utiliser ce repo
