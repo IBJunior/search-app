@@ -7,7 +7,7 @@ Ce projet illustre avec un exemple simple comment on peut exploiter la puissance
 - Suggestion des termes de recherche
 <img src="images/SearchApp-Home.png">
 - Résultat de recherche 
-<img src="images/SearchApp-search.png">
+<img src="images/searchApp-search.png">
 - Pagination des résultats de recherhce
 <img src="images/pagination.png">
 
